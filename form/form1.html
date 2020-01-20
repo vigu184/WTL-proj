@@ -1,0 +1,169 @@
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+ 
+}
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+</style>
+</head>
+<body>
+<h3><center>STUDENT/PARENT REGISTRATION</center></h3>
+
+<div class="container">
+  <form name="RegForm" action="faction.php" onsubmit="return validate()" method="post">
+    <label for="fname">First Name</label>
+    <input type="text" id="fname" name="firstname" placeholder="Your First Name.">
+
+    <label for="lname">Last Name</label>
+    <input type="text" id="lname" name="lastname" placeholder="Your Last Name.">
+	
+	<label for="email">Email ID</label>
+    <input type="text" id="phone" name="email" placeholder="Your Email ID.">
+    
+    <!--<label for="address">Address</label>
+    <input type="text" id="address" name="address" placeholder="Your Address.">-->
+    
+    <label for="City">City</label>
+    <input type="text" id="pincode" name="city" placeholder="Your City.">
+    
+    
+	
+    <!--<label for="country">Country</label>
+    <select id="country" name="country">
+      <option value="Australia">Australia</option>
+      <option value="United States Of America">USA</option>
+      <option value="Afghanistan">Afghanistan</option>
+      <option value="Bangladesh">Bangladesh</option>
+      <option value="Bhutan">Bhutan</option>
+      <option value="Canada">Canada</option>
+      <option value="China">China</option>
+      <option value="Denmark">Denmark</option>
+      <option value="Ecuador">Ecuador</option>
+      <option value="France">France</option>
+      <option value="Germany">Germany</option>
+      <option value="India">India</option>
+      <option value="Japan">Japan</option>
+      <option value="Kenya">Kenya</option>
+      <option value="Mexico">Mexico</option>
+      <option value="Nepal">Nepal</option>
+      <option value="Peru">Peru</option>
+      <option value="Russia">Russia</option>
+      <option value="Sweden">Sweden</option>
+      <option value="Taiwan">Taiwan</option>
+      <option value="United Kingdom">UK</option>
+      <option value="Venezuela">Venezuela</option>
+      <option value="Zimbabwe">Zimbabwe</option>_-->
+      
+    </select>
+    
+     <!-- <label for="subject">Subject</label>
+    <select id="Subject" name="Subject">
+     <option value="Mathematics">Mathematics</option>
+      <option value="Physics">Physics</option>
+      <option value="Chemistry">Chemistry</option>
+      <option value="Biology">Biology</option>
+      <option value="English">English</option>
+      <option value="French">French</option>
+      <option value="Geography">Geography</option>
+      <option value="History">History</option>
+      </select>-->
+
+    
+
+    <input type="submit" value="Submit">
+  </form>
+</div>
+
+</body>
+
+</html>
+<script type="text/javascript">
+	//form validation
+	function validate()
+	{
+	    
+	    var fname = document.forms["RegForm"]["firstname"].value;
+		if(fname=="")
+		{
+			alert("Please provide your first name!");
+			document.RegForm.firstname.focus();
+			return false;
+		}
+		var lname = document.forms["RegForm"]["lastname"].value;
+		if(lname=="")
+		{
+			alert("Please provide your last name!");
+			document.RegForm.lastname.focus();
+			return false;
+		}
+		
+		
+		var x=document.forms["RegForm"]["email"].value;  
+		var atposition=x.indexOf("@");  
+		var dotposition=x.lastIndexOf(".");  
+		if (atposition<1||dotposition<atposition+2||dotposition+2>=x.length)
+		{  
+		alert("Please enter a valid e-mail address \n atpostion:"+atposition+"\n dotposition:"+dotposition);  
+		return false;  
+		}
+		
+		/*var phone = document.forms["RegForm"]["phone"].value;
+		var pl = document.RegForm.phone.value.length;
+		
+		if(pl!=10)
+		{
+			alert("Please provide valid 10 digit phone number!");
+			document.RegForm.phone.focus();
+			return false;
+		}*/
+		
+		/*var address = document.forms["RegForm"]["address"].value;
+		if(address=="")
+		{
+			alert("Please provide your Address!");
+			document.RegForm.address.focus();
+			return false;
+		}*/
+		
+		/*var pincode = document.forms["RegForm"]["pincode"].value;
+		var pin = document.RegForm.pincode.value.length;
+		
+		if(pin!=6)
+		{
+			alert("Please provide valid 6 pincode!");
+			document.RegForm.pincode.focus();
+			return false;
+		}*/
+		
+	}
+</script>
