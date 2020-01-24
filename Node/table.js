@@ -10,9 +10,10 @@ var con = mysql.createConnection({
 con.connect(function(err) {
   if (err) throw err;
   console.log("Connected!");
-   var sql = "CREATE TABLE users (first_name VARCHAR(255), last_name VARCHAR(255), email VARCHAR(255) primary key, city VARCHAR(255))";
-   con.query(sql, function (err, result) {
+   var sql = "CREATE TABLE Tutors (Tut_name VARCHAR(255), NOI VARCHAR(255), email VARCHAR(255) primary key, subject VARCHAR(255),city VARCHAR(255))";
+   con.query(sql, function (err, result) 
+   {
     if (err)  throw err;
     console.log("Table created");
-  });
+   });
 });

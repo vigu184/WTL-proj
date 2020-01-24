@@ -1,0 +1,111 @@
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+ 
+}
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+</style>
+</head>
+<body>
+<h3><center>REGISTER/RECOMMEND TUTOR</center></h3>
+
+<div class="container">
+  <form name="RegForm" action="http://localhost:8081/TutReg" onsubmit="return validate()" method="post">
+    <label for="TutName">Tutor Name</label>
+    <input type="text" id="TutName" name="TutName" placeholder="Head Instructor/Tutor's Name">
+
+    <label for="NOI">Name of Insititute</label>
+    <input type="text" id="NOI" name="NOI" placeholder="Name of Institute">
+	
+	<label for="email">Email ID</label>
+    <input type="text" id="email" name="email" placeholder="Your Email ID.">
+	
+	  <label for="subject">Subject</label>
+      <select id="Subject" name="Subject">
+      <option value="Mathematics">Mathematics</option>
+      <option value="Physics">Physics</option>
+      <option value="Chemistry">Chemistry</option>
+      <option value="Biology">Biology</option>
+      <option value="English">English</option>
+      <option value="French">French</option>
+      <option value="Geography">Geography</option>
+      <option value="History">History</option>
+      </select>  
+    
+    <label for="City">City</label>
+	 <select id="City" name="City">
+      <option value="Mumbai">Mumbai</option>
+      <option value="Delhi">Delhi</option>
+      <option value="Kolkata">Kolkata</option>
+      <option value="Chennai">Chennai</option>
+      <option value="Bangalore">Bangalore</option>
+      <option value="Hyderabad">Hyderabad</option>         
+    </select>
+    
+    <input type="submit" value="Submit">
+  </form>
+</div>
+
+</body>
+
+</html>
+<script type="text/javascript">
+	//form validation
+	function validate()
+	{    
+	    var fname = document.forms["RegForm"]["TutName"].value;
+		if(fname=="")
+		{
+			alert("Please provide your Tutor name!");
+			document.RegForm.TutName.focus();
+			return false;
+		}
+		
+		 var NOI = document.forms["RegForm"]["NOI"].value;
+		if(NOI=="")
+		{
+			alert("Please provide your Insitute Name");
+			document.RegForm.NOI.focus();
+			return false;
+		}
+				
+		var x=document.forms["RegForm"]["email"].value;  
+		var atposition=x.indexOf("@");  
+		var dotposition=x.lastIndexOf(".");  
+		if (atposition<1||dotposition<atposition+2||dotposition+2>=x.length)
+		{  
+		alert("Please enter a valid e-mail address \n atpostion:"+atposition+"\n dotposition:"+dotposition);  
+		return false;  
+		}	
+	}
+</script>
